@@ -5,25 +5,24 @@ set compile=%1
 set input=%2
 set output=%3
 set res=
-
 if not defined compile (
-	echo Not file provided or bad syntax
+	echo Not file provided or wrong syntax
 	exit /b 1
 )
 if not exist %compile%.cpp (
-	echo file %compile%.cpp do not exist
+	echo file %compile%.cpp doesn't exist
 	exit /b 1
 )
 set res=%compile%
 if defined input (
-	if not exist %input%.txt (
-		echo file %input%.txt do not exist
+	if not exist !input! (
+		echo file %input% doesn't exist
 		exit /b 1
 	)
-	set "res=%res% < %input%.txt"
+	set "res=%res% < %input%"
 )
 if defined output (
-	set "res=%res% > %output%.txt"
+	set "res=%res% > %output%"
 )
 
 echo compiling...
