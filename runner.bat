@@ -11,6 +11,9 @@ if not defined compile (
 	echo Not file provided or wrong syntax
 	exit /b 1
 )
+if exist %compile%.exe (
+	del %compile%.exe
+)
 if not exist %compile%.* (
 	echo file %compile% doesn't exist
 	exit /b 1
